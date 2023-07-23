@@ -1,0 +1,205 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d32f2f;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.input-container input[type="text"],
+.input-container input[type="date"],
+.input-container select {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.input-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.input-container button:hover {
+    background-color: #f44336;
+}
+
+.task-list-container,
+.backlog-list-container,
+.activity-logs-container {
+    margin-top: 20px;
+}
+
+.task-list-container h2,
+.backlog-list-container h2,
+.activity-logs-container h2 {
+    margin-bottom: 10px;
+}
+
+.task-list,
+.backlog-list,
+.logs-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-list li,
+.backlog-list li,
+.logs-list li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.task-list li ,
+.backlog-list li ,
+.logs-list li {
+    flex: 1;
+}
+
+.task-list li button,
+.backlog-list li button,
+.logs-list li button {
+    padding: 5px 10px;
+    margin-left: 10px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task-list li button:hover,
+.backlog-list li button:hover,
+.logs-list li button:hover {
+    background-color: #d32f2f;
+}
+
+.task-list li input[type="checkbox"],
+.backlog-list li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.task-list li.completed,
+.backlog-list li.completed ,
+.logs-list li.completed {
+    text-decoration: line-through;
+}
+
+.filters {
+    display: flex;
+    align-items: center;
+}
+
+.filters h2 {
+    margin-right: 10px;
+}
+
+.filters input[type="date"],
+.filters input[type="text"],
+.filters select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.filters button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search {
+    margin-left: 80px;
+}
+
+.filters button:hover {
+    background-color: #f44336;
+}
+
+.sorting {
+    margin-top: 20px;
+}
+
+.sorting h2 {
+    margin-bottom: 10px;
+}
+
+.sorting select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.Abutton{
+    padding: 5px 10px;
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .input-container {
+        flex-direction: column;
+    }
+
+    .input-container input[type="text"],
+    .input-container input[type="date"],
+    .input-container select {
+        flex: 1 0 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .filters input[type="date"],
+    .filters input[type="text"],
+    .filters select {
+        flex: 1 0 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}

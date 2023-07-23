@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>To-Do List App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="container">
+    <h1>To-Do List</h1>
+    <div class="input-container">
+      <input type="text" id="taskInput" placeholder="Enter a task" />
+      <input type="text" id="categoryInput" placeholder="Enter category" />
+      <input type="date" id="DateInput" />
+      <select id="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button id="taskbutton">Add</button>
+    </div>
+
+    <h2>Filters:</h2>
+    <div class="filters">
+      <input type="date" id="dueDateFrom" placeholder="From" />
+      <input type="date" id="dueDateTo" placeholder="To" />
+      <input type="text" id="filterCategory" placeholder="Category" />
+      <select id="filterPriority">
+        <option value="">Any</option>
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button id="filter">Apply Filters</button>
+      <label class="search" for="searchInput">Search: </label>
+      <input type="text" id="searchInput" placeholder="Enter task name">
+      <button onclick="searchTasks()">Search</button>
+    </div>
+
+
+    <div class="sorting">
+      <h2>Sort By:</h2>
+      <select id="sortSelect" onchange="sortTasks()">
+        <option value="default">Default</option>
+        <option value="dueDate">Due Date</option>
+        <option value="priority">Priority</option>
+      </select>
+    </div>
+
+
+    <div class="task-list-container">
+      <h2>Tasks:</h2>
+      <ul id="taskList" class="task-list"></ul>
+    </div>
+
+    <div class="backlog-list-container">
+      <h2>Backlogs:</h2>
+      <ul id="backlogList" class="task-list"></ul>
+    </div>
+
+    <div class="activity-logs-container"></div>
+    <h2>Activity Logs:</h2>
+    <button class="Abutton" id="clearButton">Clear</button>
+    <ul id="logsList" class="logs-list"></ul>
+  </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
