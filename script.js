@@ -1,6 +1,7 @@
 // Array to store tasks
 var tasks = [];
 var activityLogs = [];
+var reminders = [];
 
 //add with fetch api
 /*
@@ -462,9 +463,63 @@ function renderActivityLogs() {
     }
 }
 
+function addReminder() {
+    var reminderTaskInput = document.getElementById("reminderTaskInput");
+    var reminderDateTimeInput = document.getElementById("reminderDateTimeInput");
+    var taskName = reminderTaskInput.value.trim();
+    var reminderDateTime = reminderDateTimeInput.value;
+
+    if (taskName === "") {
+        alert("Please enter a task");
+        return;
+    }
+
+    if (reminderDateTime === "") {
+        alert("Please select a date and time");
+        return;
+    }
+
+    reminders.push({ task: taskName, datetime: reminderDateTime });
+
+    // Save reminders to localStorage
+    saveToLocalStorage();
+
+    reminderTaskInput.value = "";
+    reminderDateTimeInput.value = "";
+
+    // Render reminders
+    ShowReminders(reminders);
+}
+
+function ShowReminders(reminders) {
+    var reminderList = document.getElementById("reminderList");
+    reminderList.innerHTML = "";
+
+    reminders.forEach((reminder) => {
+        var li = document.createElement("li");
+        li.textContent = reminder.task + " (Reminder at " + reminder.datetime + ")";
+        reminderList.appendChild(li);
+    });
+}
+
+function checkReminders() {
+    var now = new Date();
+    reminders.forEach(function (reminder, index) {
+        if (reminder.datetime <= now) {
+            alert("Reminder: " + reminder.task);
+            reminders.splice(index, 1);
+            saveToLocalStorage();
+            ShowReminders();
+        }
+    });
+}
+
+document.getElementById("reminderButton").addEventListener("click", addReminder);
+setInterval(checkReminders, 30000);
+
 //Sql database Schema
 /*
-
+ 
 CREATE TABLE tasks (
   task_id INT PRIMARY KEY,
   task_name VARCHAR(255) NOT NULL,
@@ -474,7 +529,7 @@ CREATE TABLE tasks (
   priority VARCHAR(20),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
-
+ 
 */
 
 
